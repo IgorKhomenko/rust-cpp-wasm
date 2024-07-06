@@ -3,6 +3,8 @@
 
 #include <sodium.h>
 
+#include <openssl/ssl.h>
+
 extern "C"
 { 
   void hello()
@@ -24,5 +26,8 @@ extern "C"
     }
     uint32_t rand_val = randombytes_random();
     printf("sodium randombytes: %d\n", rand_val);
+
+    OpenSSL_add_all_algorithms();
+    SSL_load_error_strings();
   }
 }
