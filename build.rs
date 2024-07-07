@@ -24,6 +24,7 @@ fn main() {
         // -I (specifies the directories where headers are located)
         build.include(include_path);
         build.include("libsodium/zig-out/include");
+        build.include("openssl-wasm/precompiled/include");
         
         build.flag("--sysroot");
         build.flag(sysroot.to_str().unwrap());
@@ -32,11 +33,14 @@ fn main() {
         // -L (specifies the directories where the libraries are located)
         println!("cargo:rustc-link-search=native={}", lib_path.display());
         println!("cargo:rustc-link-search=native={}", "libsodium/zig-out/lib");
+        println!("cargo:rustc-link-search=native={}", "openssl-wasm/precompiled/lib");
 
         // -l (link the libraries)
         println!("cargo:rustc-link-lib=static=c++");
         println!("cargo:rustc-link-lib=static=c++abi");
         println!("cargo:rustc-link-lib=static=sodium"); // Use the static version of libsodium
+        println!("cargo:rustc-link-lib=static=ssl"); // Use the static version of ssl
+        println!("cargo:rustc-link-lib=static=crypto"); // Use the static version of crypto
     }
 
     build.compile("my_code");
