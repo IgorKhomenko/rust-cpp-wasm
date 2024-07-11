@@ -10,6 +10,8 @@
 
 #include <boost/algorithm/string.hpp>
 
+#include "wallet.pb.h"
+
 struct KeyPair
 {
   std::vector<uint8_t> public_key;
