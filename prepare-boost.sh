@@ -5,5 +5,4 @@ cd boost
 ./b2 headers # generate headers
 ./b2 toolset=clang --with-system --with-filesystem # build
 
-# boost-array/precompiled/include will contain headers
-# boost-array/precompiled/lib will contain binaries
+# boost will contain headers and binaries
