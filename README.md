@@ -42,5 +42,3 @@ This should print the following:
 The sodium is initialized!
 sodium randombytes: 714298213
 ```
-
-<!-- export WASI_SDK_PATH=~/Downloads/wasi-sdk-20.0+threads -->
