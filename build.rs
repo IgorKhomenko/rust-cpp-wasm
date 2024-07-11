@@ -25,6 +25,7 @@ fn main() {
         build.include(include_path);
         build.include("libsodium/zig-out/include");
         build.include("openssl-wasm/precompiled/include");
+        build.include("boost");
         
         build.flag("--sysroot");
         build.flag(sysroot.to_str().unwrap());

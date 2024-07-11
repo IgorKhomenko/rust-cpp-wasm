@@ -8,6 +8,8 @@
 #include <openssl/x509.h>
 #include <openssl/err.h>
 
+#include <boost/algorithm/string.hpp>
+
 struct KeyPair
 {
   std::vector<uint8_t> public_key;
@@ -74,6 +76,12 @@ extern "C"
       printf("Openssl public_key: %d\n", i);
     for (auto i : key_pair.private_key)
       printf("Openssl private_key: %d\n", i);
+
+    // Test boost
+    //
+    std::string s = "Boost Libraries";
+    boost::to_upper(s);
+    printf("[hello] Boost Upper Case test: %s\n", s.c_str());
   }
 
   pid_t getpid(void) {
