@@ -12,6 +12,9 @@
 
 #include "wallet.pb.h"
 
+#include "add.h"
+#include "add2.h"
+
 struct KeyPair
 {
   std::vector<uint8_t> public_key;
@@ -19,7 +22,7 @@ struct KeyPair
 };
 
 extern "C"
-{ 
+{
   void hello()
   {
     // Test C++
@@ -84,9 +87,21 @@ extern "C"
     std::string s = "Boost Libraries";
     boost::to_upper(s);
     printf("[hello] Boost Upper Case test: %s\n", s.c_str());
+
+    // Test protobuf
+    //
+    // google::protobuf::internal::AnyMetadata max_supply;
+    // TableStruct_wallet_2eproto a;
+
+    // A2DD *a = new A2DD(1, 2);
+    // a->getSum();
+
+    A2DD2 *a = new A2DD2(1, 2);
+    printf("SUM: %d\n", a->getSum());
   }
 
-  pid_t getpid(void) {
+  pid_t getpid(void)
+  {
     return 1;
   }
 }
