@@ -13,7 +13,6 @@
 #include "wallet.pb.h"
 
 #include "add.h"
-#include "add2.h"
 
 struct KeyPair
 {
@@ -90,14 +89,10 @@ extern "C"
 
     // Test protobuf
     //
-    // google::protobuf::internal::AnyMetadata max_supply;
-    // TableStruct_wallet_2eproto a;
+    my_wallets::MaxSupply max_supply;
 
-    // A2DD *a = new A2DD(1, 2);
-    // a->getSum();
-
-    A2DD2 *a = new A2DD2(1, 2);
-    printf("SUM: %d\n", a->getSum());
+    A2DD *a1 = new A2DD(2, 2);
+    printf("SUM1: %d\n", a1->getSum());
   }
 
   pid_t getpid(void)
