@@ -10,6 +10,10 @@
 
 #include <boost/algorithm/string.hpp>
 
+#include "wallet.pb.h"
+
+#include "add.h"
+
 struct KeyPair
 {
   std::vector<uint8_t> public_key;
@@ -17,7 +21,7 @@ struct KeyPair
 };
 
 extern "C"
-{ 
+{
   void hello()
   {
     // Test C++
@@ -82,9 +86,17 @@ extern "C"
     std::string s = "Boost Libraries";
     boost::to_upper(s);
     printf("[hello] Boost Upper Case test: %s\n", s.c_str());
+
+    // Test protobuf
+    //
+    my_wallets::MaxSupply max_supply;
+
+    A2DD *a1 = new A2DD(2, 2);
+    printf("SUM1: %d\n", a1->getSum());
   }
 
-  pid_t getpid(void) {
+  pid_t getpid(void)
+  {
     return 1;
   }
 }

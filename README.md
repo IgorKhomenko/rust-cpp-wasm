@@ -15,6 +15,11 @@ export PATH=$WASI_SDK_PATH/bin:$PATH
 4. Run `sh prepare-sodium.sh` to prepare `libsodium` for wasm env. You may need to install `zig` in advance.
 5. Run `sh prepare-openssl.sh` to prepare `libssl` for wasm env. Also, in some of your C++ file you need to define `pid_t getpid(void) {return 1;}` since WASI lacks process identifiers, so we nede to define some stub.
 6. Run `sh prepare-boost.sh` to prepare `boost` for wasm env.
+7. Run `sh prepare-protobuf.sh` to prepare `protobuf` for wasm env. For protobuf to work we also need to use wasi-sdk with pthreads support, e.g. https://github.com/WebAssembly/wasi-sdk/releases/tag/wasi-sdk-20%2Bthreads, and then do :
+```
+export WASI_SDK_PATH=~/Downloads/wasi-sdk-20.0+threads
+export PATH=$WASI_SDK_PATH/bin:$PATH
+```
 
 ## Build
 
