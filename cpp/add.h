@@ -1,26 +1,23 @@
-// A2DD.h
-#ifndef A2DD_H
-#define A2DD_H
+// add.h
+#ifndef add_H
+#define add_H
 
-class A2DD
+class Add
 {
   int gx;
   int gy;
 
 public:
-  A2DD(int x, int y);
+  Add(int x, int y);
   int getSum();
 };
 
+// wrapper
+extern "C"
+{
+  Add *Add_C_new(int x, int y);
+  void Add_C_delete(Add *add);
+  int Add_C_getSum(Add *add);
+}
+
 #endif
-
-A2DD::A2DD(int x, int y)
-{
-  gx = x;
-  gy = y;
-}
-
-int A2DD::getSum()
-{
-  return gx + gy;
-}

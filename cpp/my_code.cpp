@@ -89,10 +89,12 @@ extern "C"
 
     // Test protobuf
     //
-    my_wallets::MaxSupply max_supply;
+    // my_wallets::MaxSupply max_supply;
 
-    A2DD *a1 = new A2DD(2, 2);
-    printf("SUM1: %d\n", a1->getSum());
+    // Add *a1 = new Add(2, 2);
+    // printf("SUM1: %d\n", a1->getSum());
+    Add *a2 = Add_C_new(2, 2);
+    printf("SUM2: %d\n", Add_C_getSum(a2));
   }
 
   pid_t getpid(void)
