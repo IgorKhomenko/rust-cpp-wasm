@@ -12,7 +12,9 @@ fn main() {
     let target = env::var("TARGET").unwrap();
 
     let mut build = cc::Build::new();
-    // build.cpp(true) // this will cause rust-lld: error: unable to find library -lstdc++
+    // build.cpp(true); // this will cause rust-lld: error: unable to find library -lstdc++
+    build.file("cpp/add.cpp");
+    build.file("cpp/wallet.pb.cc");
     build.file("cpp/my_code.cpp");
 
     if target.contains("wasm32") {

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package my_wallets;
+
+option optimize_for = SPEED;
+
+message MaxSupply{
+	string max_supply = 1;
+	string circulation = 2;
+}
